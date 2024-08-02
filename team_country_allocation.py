@@ -20,13 +20,13 @@ def write_team_country_dict(team_country_dict_file, team_country_dict):
 			file.write(f"'{team}':'{country}',\n")
 
 # Path to the team-country dictionary file
-team_country_dict_file = 'team_country_dictionary.txt'
+team_country_dict_file = 'team_country_dictionary.csv'
 
 # Read the existing team-country dictionary
 team_country_dict = read_team_country_dict(team_country_dict_file)
 
 # Load the updated dataset
-file_path = 'C:/Users/gabriel.pictet/Documents/Gabriel/REAL/Moti/Moti data/answers-volunteers.txt'
+file_path = 'C:/Users/gabriel.pictet/Documents/Gabriel/REAL/Moti/Moti data/ungrouped_ALL.csv'
 df = pd.read_csv(file_path, sep=",", encoding='utf-8')
 
 # Create an empty 'country' column
@@ -49,7 +49,7 @@ for team_name in df['Team Name'].unique():
 write_team_country_dict(team_country_dict_file, team_country_dict)
 
 # Save the updated dataset if needed
-updated_file_path = 'C:/Users/gabriel.pictet/Documents/Gabriel/REAL/Moti/Moti data/updated_answers-volunteers.txt'
+updated_file_path = 'C:/Users/gabriel.pictet/Documents/Gabriel/REAL/Moti/Moti data/country_ungrouped_ALL.txt'
 df.to_csv(updated_file_path, index=False, encoding='utf-8')
 
 print(f"Updated dictionary saved to {team_country_dict_file}")
