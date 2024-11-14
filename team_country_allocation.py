@@ -49,7 +49,7 @@ for team_name in df['Team Name'].unique():
 write_team_country_dict(team_country_dict_file, team_country_dict)
 
 # Save the updated dataset if needed
-updated_file_path = 'C:/Users/gabriel.pictet/Documents/Gabriel/REAL/Moti/Moti data/country_ungrouped_ALL.txt'
+updated_file_path = 'C:/Users/gabriel.pictet/Documents/Gabriel/REAL/Moti/Moti data/country_ungrouped_ALL.csv'
 df.to_csv(updated_file_path, index=False, encoding='utf-8')
 
 print(f"Updated dictionary saved to {team_country_dict_file}")
