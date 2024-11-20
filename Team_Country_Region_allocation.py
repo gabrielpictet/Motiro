@@ -743,7 +743,7 @@ df = df[df['Region'] !='corporate']
 
 # Save the updated dataframe to a new file
 #output_file_path = 'ungrouped_ALL_with_regions.txt'
-output_file_path = 'Individual.txt'
+output_file_path = 'Individual.csv'
 df.to_csv(output_file_path, sep=",", index=False, encoding='utf-8')
 
 print(f"Updated dataframe saved to {output_file_path}")
