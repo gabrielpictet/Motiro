@@ -4,7 +4,7 @@ import pandas as pd
 
 # Load the dataset
 file_path = "C:/Users/gabriel.pictet/Documents/Gabriel/REAL/Moti/Moti data/ungrouped_ALL.csv"
-df = pd.read_csv(file_path)
+df = pd.read_csv(file_path, encoding='utf-8')
 
 # Extract the "Team Name" and "country" columns
 team_country_df = df[['Team Name', 'country']].drop_duplicates()
