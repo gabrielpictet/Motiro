@@ -80,7 +80,7 @@ team_country_dict = {
 'CRCS volunteers 1':'Cyprus',
 'CRCS volunteers 2':'Cyprus',
 'CREPD':'El Salvador',
-'CRI Team':'DK',
+'CRI Team':'Italy',
 'CRISTALES':'Mexico',
 'CRMSJR TEAM':'Mexico',
 'CRM_DIxtapaluca':'Mexico',
@@ -108,7 +108,7 @@ team_country_dict = {
 'Communications':'Ukraine',
 'Convencion Nacional VOL':'Mexico',
 'Coord. Locales Vol Chihuahua':'Mexico',
-'Coordinación Gral Filial':'DK',
+'Coordinación Gral Filial':'Argentina',
 'Coordinators':'DK',
 'Cruz Roja Cuautla':'Mexico',
 'Cruz Roja Delegacion Apaseo':'Mexico',
@@ -291,7 +291,7 @@ team_country_dict = {
 'Lviv District Staff Volunteers':'Ukraine',
 'Lviv Regional Staff':'Ukraine',
 'Lychakivska & Syhiv City Representation Staff Volunteers':'Ukraine',
-'MRC AWP 2022':'DK',
+'MRC AWP 2022':'Mexico',
 'MX-MEXICO-LA PERLA-EQUIPO2':'Mexico',
 'MX-MICH-MORELIA-001':'Mexico',
 'MX-MICH-MORELIA-002':'Mexico',
@@ -360,7 +360,7 @@ team_country_dict = {
 'Pryluky_District_Volunteers':'Ukraine',
 'Prymorska_City_Volunteers':'Ukraine',
 'Psychosocial Support або PSS':'Ukraine',
-'QARMA-enheten':'DK',
+'QARMA-enheten':'corporate',
 'QROEST1':'Mexico',
 'QROEST2':'Mexico',
 'R.C':'DK',
@@ -474,7 +474,7 @@ team_country_dict = {
 'Voluntariado Chiapa de corzo':'Mexico',
 'Voluntariado capacitación':'Mexico',
 'Voluntarios Cruz Roja Salvadoreña ':'El Salvador',
-'Voluntarios Cruz Roja Salvadoreña Linea Intermedia':'Salvador',
+'Voluntarios Cruz Roja Salvadoreña Linea Intermedia':'El Salvador',
 'Voluntarios Navy':'DK',
 'Voluntarios Profesionales TGA':'DK',
 'Volunteering Alliance Review':'IFRC network',
@@ -669,7 +669,17 @@ team_country_dict = {
 'ABRCS Governing Board':'Antigua and Barbuda',
 'Grupo Consultor de Mercados Agrícolas':'corporate',
 'Пропаганда донорства крові та її компонентів':'Ukraine',
-
+'Miembros Cruz Roja Salvadoreña':'El Salvador',
+'Dnipro_Regional_ERT_Volunteers':'Ukraine',
+'Dnipro_Regional_Emergency Response Team_Volunteers':'Ukraine',
+'Dnipro_Region_First Aid_Volunteers':'Ukraine',
+'Northern Division (Youth Volunteers)': 'Fiji',
+'Northern Division (Youth Officers & Executives)': 'Fiji',
+'Prueba de linea intermediaria':'DK',
+'Aprender a Cambiar (Lead to Change - LtC) - Viaje de Aprendizaje - #3 en las Americas':'Lead to Change',
+'Coordinación Gral Filial':'Argentina',
+'Prueba de linea intermedia':'DK',
+'TEST 1':'test',
 # Add more entries as needed
 }
 
@@ -721,7 +731,6 @@ country_region_dict = {
 'Bahamas':'Americas',
 'Antigua and Barbuda':'Americas',
 'IFRC':'Global',
-'Salvador':'Americas',
 'Serbia':'Europe',
 'test':'test',
 'corporate':'corporate',
@@ -730,6 +739,11 @@ country_region_dict = {
 'Vanuatu':'Asia-Pacific',
 'Kyrgyzstan':'Europe',
 'Zambia':'Africa',
+'Lead to Change':'Global',
+'Fiji':'Asia-Pacific',
+'Italy':'Europe',
+
+
  # Add more entries as needed
  }
 
