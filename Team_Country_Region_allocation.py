@@ -754,6 +754,8 @@ df['Region'] = df['Country'].map(country_region_dict)
 df = df[df['Region'] != 'test']
 # Drop individuals who belong to corporate teams
 df = df[df['Region'] !='corporate']
+# Drop individuals who belong to non identified teams
+#df = df[df['Region'] !='DK']
 
 # Save the updated dataframe to a new file
 #output_file_path = 'ungrouped_ALL_with_regions.txt'
