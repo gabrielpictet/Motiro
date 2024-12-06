@@ -680,6 +680,10 @@ team_country_dict = {
 'Coordinación Gral Filial':'Argentina',
 'Prueba de linea intermedia':'DK',
 'TEST 1':'test',
+'Voluntariado Cruz Roja Hondureña':'Honduras',
+'bienestar mental':'Mexico',
+'Click_A - Equipo técnico ':'Spain',
+'Dnipro_District_Staff':'Ukraine',
 # Add more entries as needed
 }
 
