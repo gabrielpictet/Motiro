@@ -8,7 +8,9 @@ Motiro Repo contains jupiter notebooks and python files to prepare and analyse M
 
 4. Country.csv - DataPrep outputs dataframe where one row is a country / National Society
 5. DataDescription.jpynb - Graphs distribution and scatter plots to describe data from: from Individual.csv
-6. . Pathways.jpynb - Provides a network graph where nodes are key Motiro/SDT indicators and edges represent correlations between them.
-7. Country.jpynb - poduces graphs for Motiro Country Reports
+6. Pathways.jpynb - a network graph where nodes are key Motiro/SDT indicators and edges represent correlations between them.
+7. Teams.jpynb -  graphs comparing different teams using Team.csv
+8. Country.jpynb - graphs for Motiro Country Reports using Individual.csv
+9. TeamTrends - compares two surveys from same team, baseline-endline comparisons.
 
 For more guidance see Motiro Wiki
