@@ -684,6 +684,7 @@ team_country_dict = {
 'bienestar mental':'Mexico',
 'Click_A - Equipo técnico ':'Spain',
 'Dnipro_District_Staff':'Ukraine',
+'Zolochiv  Representation District Staff Volunteers':'Ukraine',
 # Add more entries as needed
 }
 
