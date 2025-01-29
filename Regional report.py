@@ -129,6 +129,8 @@ doc.add_heading('Discussion biases', level=4)
 
 doc.add_heading('Results', level=2)
 
+doc.add_picture(f'{NS}_{structure_name}_spider.png', width=Inches(6), height=Inches(6))
+
 # General data and illustrations on the region as a whole (analysis of Motiro app graphs and scores)
 doc.add_heading(f'Motivational outcomes in {structure_name}', level=3)
 doc.add_heading(f'Aggregated survey results in {structure_name}', level=4)
@@ -142,7 +144,8 @@ doc.add_paragraph(f'We now describe and explain patterns, commonalities and diff
 
 doc.add_heading(f'Well-being', level=3)
 doc.add_heading(f'Survey results', level=4)
-doc.add_paragraph(f'<Paste the Motiro regional report wellbeing bar graphs here>')
+
+doc.add_picture(f'{NS}_{structure_name}_health_bar.png', width=Inches(6), height=Inches(2.5))
 
 # Load the CSV file into a DataFrame
 wellbeing_df = pd.read_csv(f'{NS}_{structure_name}_Well-being.csv')
@@ -184,6 +187,9 @@ doc.add_paragraph(f'Describe and explain patterns, commonalities and differences
 
 doc.add_heading(f'Engagement', level=3) 
 doc.add_heading(f'Survey results', level=4)
+
+doc.add_picture(f'{NS}_{structure_name}_engagement_spider.png', width=Inches(3), height=Inches(3))
+
 doc.add_paragraph(f'<Paste the regional bar graph here>')
 
 # Load the CSV file into a DataFrame
@@ -228,6 +234,8 @@ doc.add_heading(f'The three basic psychological needs and intrinsic motivation',
 doc.add_heading(f'Survey results', level=4)
 doc.add_paragraph(f'<Paste the regional intrinsic motivation dashboard here>')
 
+doc.add_picture(f'{NS}_{structure_name}_needs_spider.png', width=Inches(2), height=Inches(2))
+
 # Load the CSV file into a DataFrame
 needs_df = pd.read_csv(f'{NS}_{structure_name}_needs.csv')
 
@@ -264,17 +272,20 @@ for i in range(needs_df.shape[0]):
 table.style = 'Table Grid'
 
 doc.add_heading(f'Autonomy', level=4)
-doc.add_paragraph(f'<Paste the regional bar graph from Motiro report here>')
+
+doc.add_picture(f'{NS}_{structure_name}_autonomy_bar.png', width=Inches(6), height=Inches(2.5))
 
 doc.add_heading(f'Key result', level=4)
 doc.add_paragraph(f'We now present the lessons and evidence on which we will base our discussion and recommendations.')
 
 doc.add_heading(f'Belonging', level=4) 
 doc.add_paragraph(f'<Paste the regional bar graph from Motiro report here>')
+doc.add_picture(f'{NS}_{structure_name}_belonging_bar.png', width=Inches(6), height=Inches(2.5))
 doc.add_heading(f'Key result', level=4)
 
 doc.add_heading(f'Competence', level=4)
 doc.add_paragraph(f'<Paste the regional bar graph from Motiro report here>')
+doc.add_picture(f'{NS}_{structure_name}_competence_bar.png', width=Inches(6), height=Inches(2.5))
 doc.add_heading(f'Key result', level=4)
 
 doc.add_heading(f'Team discussion findings on intrinsic motivators', level=4)
@@ -282,8 +293,9 @@ doc.add_paragraph(f'We now describe and explain patterns, commonalities and diff
 
 doc.add_heading(f'Leadership', level=3)
 doc.add_heading(f'Survey results', level=4)
-doc.add_paragraph(f'<Paste the regional leadership dashboard here>')
 
+doc.add_picture(f'{NS}_{structure_name}_leadership_spider.png', width=Inches(3), height=Inches(3))
+doc.add_picture(f'{NS}_{structure_name}_leadership_bar.png', width=Inches(6), height=Inches(2.5))
 # Load the CSV file into a DataFrame
 leadership_df = pd.read_csv(f'{NS}_{structure_name}_leadership.csv')
 
@@ -335,7 +347,8 @@ doc.add_heading(f'Team discussion findings on leadership and leadership skills',
 
 doc.add_heading(f'Management and extrinsic motivation', level=3)
 doc.add_heading(f'Survey results', level=4)
-doc.add_paragraph(f'<Paste the regional exrinsic dashboard here>')
+
+doc.add_picture(f'{NS}_{structure_name}_management_spider.png', width=Inches(3), height=Inches(3))
 
 # Load the CSV file into a DataFrame
 management_df = pd.read_csv(f'{NS}_{structure_name}_Management.csv')
@@ -388,6 +401,7 @@ doc.add_paragraph(f'Describe and explain patterns, commonalities and differences
 doc.add_heading(f'Pathways to improved motivation in {structure_name}', level=3)
 
 doc.add_paragraph('The figure below shows the most important correlations in the regional survey data. Because Motiro is based on SDT, the correlations are likely to be causal influences.')
+
 doc.add_picture(f'{NS} {structure_name} SDTCorrNetworkGraph.png', width=Inches(6), height=Inches(4))
 
 doc.add_heading(f'Discussion on {structure_name} survey and team discussion findings', level=3)
