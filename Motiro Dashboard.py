@@ -60,7 +60,7 @@ heading_font = heading_style.font
 heading_font.name = 'Arial'
 heading_font.size = Pt(12)
 heading_font.bold = True
-heading_font.color.rgb = RGBColor(0, 0, 0)  # Black
+heading_font.color.rgb = RGBColor(0, 153, 153)  # CE Teal
 
 #Add a custom style for the title and set the font properties
 title_style = doc.styles.add_style('CustomTitle', 1)
@@ -68,7 +68,7 @@ title_font = title_style.font
 title_font.name = 'Arial'
 title_font.size = Pt(24)
 title_font.bold = True
-title_font.color.rgb = RGBColor(0, 0, 128)  # Dark blue
+title_font.color.rgb = RGBColor(0, 111, 108)  # Dark blue
 
 #Add a custom style for paragraphs and set the font properties
 paragraph_style = doc.styles.add_style('CustomParagraph', 1)
@@ -132,7 +132,8 @@ doc.add_paragraph(f'from {total_teams} teams', style='ListBullet')
 paragraph.style = paragraph_style
 doc.add_paragraph(f'belonging to {total_countries} RCRC entities.', style='ListBullet')
 paragraph.style = paragraph_style
-# Add Plot
+
+# Add bar distribution plots by country and by region
 
 # Add a table with one row and two columns
 table = doc.add_table(rows=1, cols=2)
@@ -149,9 +150,27 @@ paragraph2 = cell2.paragraphs[0]
 run2 = paragraph2.add_run()
 run2.add_picture('RespondentsByRegionSorted.png', width=Inches(3), height=Inches(3))
 
+# Add time series Plots
+
+# Add a table with one row and two columns
+table = doc.add_table(rows=1, cols=2)
+
+# Add the first picture to the first cell
+cell1 = table.cell(0, 0)
+paragraph1 = cell1.paragraphs[0]
+run1 = paragraph1.add_run()
+run1.add_picture('responses_over_time.png', width=Inches(3), height=Inches(2.5))
+
+# Add the second picture to the second cell
+cell2 = table.cell(0, 1)
+paragraph2 = cell2.paragraphs[0]
+run2 = paragraph2.add_run()
+run2.add_picture('responses_over_time_cumulative.png', width=Inches(3), height=Inches(2.5))
+
 doc.add_page_break()
-doc.add_heading('Motiro findings', level=2)
+heading = doc.add_heading('Motiro findings', level=2)
 heading.style = heading_style
+
 doc.add_paragraph('What is the quality of volunteer and staff motivation and engagement?')
 paragraph.style = paragraph_style
 
@@ -170,6 +189,10 @@ paragraph2 = cell2.paragraphs[0]
 run2 = paragraph2.add_run()
 run2.add_picture('Staff_spider.png', width=Inches(3), height=Inches(3))
 
+# Add a ligne break
+doc.add_paragraph('')
+paragraph.style = paragraph_style
+
 doc.add_paragraph('What are the pathways toward improved motivation, engagement and well-being?')
 paragraph.style = paragraph_style
 # Add a table with one row and two columns
@@ -179,7 +202,7 @@ table = doc.add_table(rows=1, cols=2)
 cell1 = table.cell(0, 0)
 paragraph1 = cell1.paragraphs[0]
 run1 = paragraph1.add_run()
-run1.add_picture('Volunteers SDTCorrNetworkGraph.png', width=Inches(3), height=Inches(2))
+run1.add_picture('Volunteer SDTCorrNetworkGraph.png', width=Inches(3), height=Inches(2))
 
 # Add the second picture to the second cell
 cell2 = table.cell(0, 1)
@@ -189,4 +212,3 @@ run2.add_picture('Staff SDTCorrNetworkGraph.png', width=Inches(3), height=Inches
 
 # Save Document
 doc.save('MotiroDashboard.docx')
-
