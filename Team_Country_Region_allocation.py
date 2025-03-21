@@ -1,4 +1,5 @@
 ## Allocate teams to countries/NS and countries/NS to IFRC regions.
+## last updated 2025-March-10
 ## Replace the : with a -
 ## Read and write txt files rather than CSV files to avoid formatting issues with non latin scripts
 ## Drop non RC teams
