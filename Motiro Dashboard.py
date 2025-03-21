@@ -116,7 +116,7 @@ heading.style = heading_style
 # Add a paragraph with a hyperlink
 paragraph = doc.add_paragraph('The ')
 add_hyperlink(paragraph, 'Motiro app', 'https://motiro.com')
-paragraph.add_run(' works in multiple languages including the four official IFRC languages.')
+paragraph.add_run(f' works in {total_languages} languages including the four official IFRC languages.')
 #paragraph.style = paragraph_style
 
 #doc.add_heading('Motiro Status Report', level=1)
@@ -171,6 +171,7 @@ doc.add_page_break()
 heading = doc.add_heading('Motiro findings', level=2)
 heading.style = heading_style
 
+
 doc.add_paragraph('What is the quality of volunteer and staff motivation and engagement?')
 paragraph.style = paragraph_style
 
@@ -189,9 +190,13 @@ paragraph2 = cell2.paragraphs[0]
 run2 = paragraph2.add_run()
 run2.add_picture('Staff_spider.png', width=Inches(3), height=Inches(3))
 
+# Add health bar charts
+doc.add_paragraph('Wellbeing: How energetic are volunteers?')
+doc.add_paragraph().add_run().add_picture('Volunteer_wellbeing_bar.png', width=Inches(5), height=Inches(2))
+
 # Add a ligne break
-doc.add_paragraph('')
-paragraph.style = paragraph_style
+#doc.add_paragraph('')
+#paragraph.style = paragraph_style
 
 doc.add_paragraph('What are the pathways toward improved motivation, engagement and well-being?')
 paragraph.style = paragraph_style
