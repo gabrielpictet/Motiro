@@ -6,6 +6,7 @@ from docx.shared import Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+import os
 
 def add_hyperlink(paragraph, text, url):
     """
@@ -79,8 +80,7 @@ paragraph_font.color.rgb = RGBColor(0, 0, 0)  # Black
 
 
 # Load the data
-file_path = 'Individual.csv'
-df = pd.read_csv(file_path, sep=",", encoding='utf-8')
+df = pd.read_csv('Individual_AP.csv', sep=",", encoding='utf-8')
 
 ## select which team, circle, category of respondent, etc. to display
 #team='Volunteer'
@@ -103,42 +103,44 @@ total_staff = df['Staff'].sum()
 total_teams = df['Team Name'].nunique()
 total_countries = df['Country'].nunique()
 # enter the app's current number of languages
+# The total_languages value is fixed at 11 because it represents the current number of languages supported by the Motiro app.
+# This information is based on the app's documentation and is subject to change if new languages are added in the future.
 total_languages = 11
 
 
 # Add a title with custom formatting
 title = doc.add_heading('Motiro Dashboard', level=1)
-title.style = title_style
+title.style = 'CustomTitle'
 
 heading = doc.add_heading('Motiro app usage', level=2)
-heading.style = heading_style
+heading.style = 'CustomHeading'
 
 # Add a paragraph with a hyperlink
 paragraph = doc.add_paragraph('The ')
 add_hyperlink(paragraph, 'Motiro app', 'https://motiro.com')
 paragraph.add_run(f' works in {total_languages} languages including the four official IFRC languages.')
-#paragraph.style = paragraph_style
+try:
+    paragraph.style = 'CustomParagraph'
+except KeyError:
+    paragraph.style = doc.styles['Normal']
 
 #doc.add_heading('Motiro Status Report', level=1)
 #doc.add_heading('Motiro usage data', level=2)
 # Add Text
-doc.add_paragraph(f'As of {most_recent_date}, the Motiro app has been used by:')
-paragraph.style = paragraph_style
+doc.add_paragraph(f'As of {most_recent_date},')
 doc.add_paragraph(f'{total_volunteers} volunteers', style='ListBullet')
-paragraph.style = paragraph_style
+paragraph.style = 'CustomParagraph'
 doc.add_paragraph(f'{total_staff} staff', style='ListBullet')
-paragraph.style = paragraph_style
+paragraph.style = 'CustomParagraph'
 doc.add_paragraph(f'from {total_teams} teams', style='ListBullet')
-paragraph.style = paragraph_style
-doc.add_paragraph(f'belonging to {total_countries} RCRC entities.', style='ListBullet')
-paragraph.style = paragraph_style
-
+paragraph.style = 'CustomParagraph'
+doc.add_paragraph(f'belonging to {total_countries} RCRC entities', style='ListBullet')
+paragraph.style = 'CustomParagraph'
+doc.add_paragraph(f'answered the survey.')
 # Add bar distribution plots by country and by region
 
 # Add a table with one row and two columns
 table = doc.add_table(rows=1, cols=2)
-
-# Add the first picture to the first cell
 cell1 = table.cell(0, 0)
 paragraph1 = cell1.paragraphs[0]
 run1 = paragraph1.add_run()
@@ -156,24 +158,24 @@ run2.add_picture('RespondentsByRegionSorted.png', width=Inches(3), height=Inches
 table = doc.add_table(rows=1, cols=2)
 
 # Add the first picture to the first cell
-cell1 = table.cell(0, 0)
+
+run1.add_picture('responses_over_time.png', width=Inches(3), height=Inches(2.5))
 paragraph1 = cell1.paragraphs[0]
 run1 = paragraph1.add_run()
-run1.add_picture('responses_over_time.png', width=Inches(3), height=Inches(2.5))
 
 # Add the second picture to the second cell
-cell2 = table.cell(0, 1)
+run2.add_picture('responses_over_time_cumulative.png', width=Inches(3), height=Inches(2.5))
 paragraph2 = cell2.paragraphs[0]
 run2 = paragraph2.add_run()
-run2.add_picture('responses_over_time_cumulative.png', width=Inches(3), height=Inches(2.5))
+
 
 doc.add_page_break()
 heading = doc.add_heading('Motiro findings', level=2)
-heading.style = heading_style
+heading.style = 'CustomHeading'
 
 
 doc.add_paragraph('What is the quality of volunteer and staff motivation and engagement?')
-paragraph.style = paragraph_style
+paragraph.style = 'CustomParagraph'
 
 # Add a table with one row and two columns
 table = doc.add_table(rows=1, cols=2)
@@ -191,29 +193,38 @@ run2 = paragraph2.add_run()
 run2.add_picture('Staff_spider.png', width=Inches(3), height=Inches(3))
 
 # Add health bar charts
-doc.add_paragraph('Wellbeing: How energetic are volunteers?')
-doc.add_paragraph().add_run().add_picture('Volunteer_wellbeing_bar.png', width=Inches(5), height=Inches(2))
+#doc.add_paragraph('Wellbeing: How energetic are volunteers?')
+#doc.add_paragraph().add_run().add_picture('Volunteer_wellbeing_bar.png', width=Inches(5), height=Inches(2))
 
 # Add a ligne break
 #doc.add_paragraph('')
 #paragraph.style = paragraph_style
 
+
+
+
 doc.add_paragraph('What are the pathways toward improved motivation, engagement and well-being?')
-paragraph.style = paragraph_style
+
 # Add a table with one row and two columns
 table = doc.add_table(rows=1, cols=2)
 
 # Add the first picture to the first cell
 cell1 = table.cell(0, 0)
-paragraph1 = cell1.paragraphs[0]
-run1 = paragraph1.add_run()
+run1 = cell1.paragraphs[0].add_run()
 run1.add_picture('Volunteer SDTCorrNetworkGraph.png', width=Inches(3), height=Inches(2))
 
-# Add the second picture to the second cell
 cell2 = table.cell(0, 1)
-paragraph2 = cell2.paragraphs[0]
-run2 = paragraph2.add_run()
+run2 = cell2.paragraphs[0].add_run()
 run2.add_picture('Staff SDTCorrNetworkGraph.png', width=Inches(3), height=Inches(2))
+
+# Save Document with error handling
+try:
+    doc.save('MotiroDashboard.docx')
+    print("Document saved successfully.")
+except PermissionError:
+    print("Permission denied: Unable to save the document. Please check if the file is open or if you have write permissions.")
+except Exception as e:
+    print(f"An error occurred while saving the document: {e}")
 
 # Save Document
 doc.save('MotiroDashboard.docx')
